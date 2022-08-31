@@ -1,0 +1,4 @@
+10074  echo "Hello, $(whoami)"
+10075  ls ~/ | grep D
+10076  cat ~/.profile ~/week1/ex1.txt > /dev/null
+10077  ping -c 1 google.com
