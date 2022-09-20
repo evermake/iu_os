@@ -23,12 +23,15 @@ int foo(int age) {
 int main() {
     const int x = 10, *q = &x;
     const int *const p = malloc(sizeof(const int) * N);
+
+    // Fill allocated cells with x
     for (int i = 0; i < N; i++) {
         int *p_i = (int*) (p+i);
         *p_i = x;
         printf("%p\n", p_i);
     }
 
+    // Read ages from user
     for (int i = 0; i < N; i++) {
         int *p_i = (int*) (p+i);
         int age;
@@ -36,6 +39,7 @@ int main() {
         *p_i = age;
     }
 
+    // Calculate and store birthday years
     for (int i = 0; i < N; i++) {
         int *p_i = (int*) (p+i);
         *p_i = foo(*p_i);
