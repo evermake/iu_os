@@ -1,0 +1,41 @@
+After running the program with n = 3, the total number of the processes
+was equal to 8 (including main process), because
+main process forks 1 time,
+then sleep,
+then forks 2nd time,
+then sleeps,
+then forks 3rd time,
+then sleeps,
+then exits the "for" loop and terminates.
+
+The first child of the main process starts executing
+the same code as the main process after first fork, so it forks 2 times and sleeps 3 times.
+
+The second child of the main process, on the other hand, forks only 1 time and sleeps 2 times,
+because it is created after the fork command in the second iteration of the loop.
+
+The third child of the main process only sleeps on the last iteration of the loop and exits.
+
+At the end of the day for n=3 we get the following picture:
+
+             M              
+             |              
+       ______|___________   
+       |          |     |   
+       |          |     |   
+      M1         M2    M3   
+       |          |         
+   ____|___      _|         
+   |      |      |          
+   |      |      |          
+  M11    M12    M21         
+   |                        
+   |                        
+   |                        
+   |                        
+ M111
+
+
+For n = 5, the total number of processes is 32.
+
+To generalize, the number of created processes is 2^n.
