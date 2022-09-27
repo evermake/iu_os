@@ -8,7 +8,7 @@
  */
 long double get_ms_from_start_clocks(clock_t start) {
     clock_t d = clock() - start;
-    return ((long double)d) / ((long double)(CLOCKS_PER_SEC * 1000));
+    return ((long double)d) / ((long double)(CLOCKS_PER_SEC)) * 1000;
 }
 
 int main() {
@@ -37,7 +37,7 @@ int main() {
             my_pid = getpid();
             parent_pid = getppid();
             printf("PID = %d, Parent PID = %d\n", my_pid, parent_pid);
-            printf("PID = %d, execution time = %Lfms\n", my_pid, get_ms_from_start_clocks(start2));
+            printf("PID = %d, execution time = %Lfms\n", my_pid, get_ms_from_start_clocks(start1));
         }
     }
 }
