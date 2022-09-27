@@ -50,10 +50,11 @@ void worker_dot_product_partition_to_file(
     int count,
     FILE* f
 ) {
+    int sum = 0;
     for (int i = offset; i < offset+count; i++) {
-        int product = a[i] * b[i];
-        worker_write_int_to_file(product, f);
+        sum += a[i] * b[i];
     }
+    worker_write_int_to_file(sum, f);
 }
 
 /*
