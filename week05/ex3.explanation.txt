@@ -1,0 +1,16 @@
+For m=1 the number of prime numbers was counted in one thread,
+so we get the real time and CPU time used (user) almost equal to 3.8 seconds.
+
+Increasing m to 2 and 4 decreases the waiting time, but increases CPU time in the user mode,
+because besides counting prime numbers in one thread CPU alse execute instrucitons to manage threads,
+that is why CPU time in user mode increases. CPU usage time increases, but now its
+distributed between multiple cores (since we have multiple threads) that is why the waiting time decreases.
+
+Increasing m from 4 to 10 increases CPU usage time even more and also decreases waiting time,
+because my machine has 8 cores.
+For m = 4, 4 cores were free.
+For m = 10, 8 cores were busy.
+
+Increasing m from 10 to 100 roughly speaking did not affect the waiting time, but have increased
+CPU usage time, because CPU should often switch between threads to finish the program,
+because only 8 threads out of 100 can run at one moment.
