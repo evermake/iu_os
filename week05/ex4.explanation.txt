@@ -1,0 +1,22 @@
+For m=1 the number of prime numbers was counted in one thread,
+so we get the real time and CPU time used (user) around 3.8 seconds.
+
+As m grows, more threads start working together and they lock/unlock the mutex,
+which increases the time spent by CPU in the kernel mode, because of the
+system calls. But it decreases the overall time spent, because multiple threads
+check prime numbers at the same time. However, the situation becomes worse as
+m becomes greater than the number of cores on my machine (8).
+
+Increasing m from 10 to 100 roughly speaking does not affect the waiting time
+and CPU time in the user mode, however it increases the CPU time in the kernel mode,
+since we have more threads and they start using mutex more often.
+
+Comparing to the exercise 3, execution time for 1 thread is almost the same,
+but as we increase the number of threads, this program begins spend a lot of time
+in kernel mode, because it has the critical regions (usage of the shared global variables:
+primes_found_so_far and next_number_to_check), and to avoid race conditions we use mutex
+by using system calls, that is why the CPU time in the kernel mode increases.
+
+To sum up, comparing to the program ex4.c,
+program in the exercise 3 works faster (with multiple threads),
+because there are no critical regions there.
