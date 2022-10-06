@@ -1,0 +1,86 @@
+For four processes:
+P1: <arrival_time>=0 <burst_time>=3
+P2: <arrival_time>=0 <burst_time>=5
+P3: <arrival_time>=2 <burst_time>=4
+P4: <arrival_time>=3 <burst_time>=10
+
+We get the results:
+
+=== Metrics for "FCFS" ===
+Completion times (CT):
+  P1: 3
+  P2: 8
+  P3: 12
+  P4: 22
+
+Turnaround times (TAT):
+  P1: 3
+  P2: 8
+  P3: 10
+  P4: 19
+
+Waiting times (WT):
+  P1: 0
+  P2: 3
+  P3: 6
+  P4: 9
+
+Average turnaround time: 10.000000
+Average waiting time: 4.500000
+========================================
+
+=== Metrics for "Shortest First" ===
+Completion times (CT):
+  P1: 3
+  P2: 12
+  P3: 7
+  P4: 22
+
+Turnaround times (TAT):
+  P1: 3
+  P2: 12
+  P3: 5
+  P4: 19
+
+Waiting times (WT):
+  P1: 0
+  P2: 7
+  P3: 1
+  P4: 9
+
+Average turnaround time: 9.750000
+Average waiting time: 4.250000
+========================================
+
+
+=== Metrics for "Round Robin" ===
+Completion times (CT):
+  P1: 3
+  P2: 14
+  P3: 15
+  P4: 22
+
+Turnaround times (TAT):
+  P1: 3
+  P2: 14
+  P3: 13
+  P4: 19
+
+Waiting times (WT):
+  P1: 0
+  P2: 9
+  P3: 9
+  P4: 9
+
+Average turnaround time: 12.250000
+Average waiting time: 6.750000
+========================================
+(With quantum = 3)
+
+For this set of processes we have that "Round Robin" has the worst average turnaround time and average waiting time,
+while "Shortest First" has the best average turnaround time and average waiting time.
+This is because "Round Robin" divides the processes into equal time slices, so the processes with the longest burst time
+will block the other processes from being executed, what (in our case) makes the average turnaround time and average waiting time
+to be higher than the other algorithms. 
+
+Also note that "Round Robin" is preemptive, compared to the other two algorithms.
