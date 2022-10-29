@@ -1,0 +1,1 @@
+We have 16 bits and each page has 2^13 addresses within it, therefore we can have 2^16/2^13 pages and the same number of entries for a single-level linear page table, which is 2^3 = 8 entries.
