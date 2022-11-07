@@ -1,0 +1,5 @@
+I tried to create a sequence with length 100 of 5 different numbers, and run the
+program with page frame size equal to 5.
+The resulting hit/miss ratio was 5/95. 5 misses will occur anyway, since
+we access these pages first time, but the rest of the time all pages will be in memory,
+so we will all remaining 95 times get a hit.
