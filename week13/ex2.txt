@@ -1,0 +1,13 @@
+Deadlock recovery has an advantage that it is not so difficult to implement,
+but it has a big drawback: we can break the programs flow and get unwanted results.
+
+Deadlock avoidance requires to analyze each resource request and know
+something about the future behaviour of the programs. The main disadvantage
+of this approach is that it is usually impossible to implement, since
+we do not know anything about the processes future.
+
+Deadlock prevention has a same goal as deadlock avoidance – prevent
+system from entering deadlock state. It has an advantage that it is
+possible to implement, but it has a disadvantage that it is
+requires modifying programs or introduce some new mechanisms,
+which just makes the system more complex and decreases performance.
